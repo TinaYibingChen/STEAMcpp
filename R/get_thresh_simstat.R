@@ -23,7 +23,7 @@
 #'
 #' @export
 #'
-sourceCpp("~/src/simstatSingle.cpp")
+# sourceCpp("~/src/simstatSingle.cpp")
 
 get_thresh_simstat <- function(g, map, props, nreps=10000, alpha=0.05, type="pval", method = "cpp"){
   # get distances between adjacent markers

@@ -10,7 +10,7 @@ List with two elements called 'a' and 'b'.
 }
 \source{
 Toy example generated with command
-  \code{get_ab(get_deltas(example_map), g = 6)}
+  \code{example_ab <- get_ab(get_deltas(example_map), g = 6)}
 }
 \description{
 Vectors of length m which depend on the distances

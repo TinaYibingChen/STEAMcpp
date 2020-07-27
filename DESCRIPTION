@@ -17,4 +17,10 @@ VignetteBuilder: knitr
 LinkingTo: 
     Rcpp
 Imports: 
-    Rcpp
+    Rcpp,
+    SNPRelate,
+    SeqArray,
+    data.table,
+    gdsfmt
+Depends: 
+    R (>= 2.10)

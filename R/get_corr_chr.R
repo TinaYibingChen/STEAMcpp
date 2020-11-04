@@ -21,7 +21,7 @@
 #'
 #' @importFrom stats cor
 #'
-#' @seealso \code{\link[STEAM]{get_g}} and \code{\link[STEAM]{combine_corr_chr}}
+#' @seealso \code{\link[STEAMcpp]{get_g}} and \code{\link[STEAMcpp]{combine_corr_chr}}
 #'
 #' @export
 get_corr_chr <- function(chrom, binsize = 0.5, map, pop1.gds, pop2.gds, pop3.gds, verbose = TRUE){

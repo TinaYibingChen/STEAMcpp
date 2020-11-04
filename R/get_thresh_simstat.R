@@ -11,7 +11,7 @@
 #' @param nreps the number of repetitions for the simulation study; default is 10000.
 #' @param alpha the level for family-wise error rate control; default is 0.05.
 #' @param type the type of threshold that should be returned: \code{"stat"} for test statistic or \code{"pval"} for p-value; defaults to pval.
-#' @param method the method used to simulate test stat: \code{"cpp"} for cpp (using rcpp, 80% faster approximately) or \code{"r"} for r.
+#' @param method the method used to simulate test stat: \code{"cpp"} for cpp (using rcpp, 80 percent faster approximately) or \code{"r"} for r.
 #'
 #' @return A single number indicating the estimated significance threshold (either test statistic or p-value).
 #'
@@ -22,8 +22,6 @@
 #' @importFrom stats quantile pnorm
 #'
 #' @export
-#'
-# sourceCpp("~/src/simstatSingle.cpp")
 
 get_thresh_simstat <- function(g, map, props, nreps=10000, alpha=0.05, type="pval", method = "cpp"){
   # get distances between adjacent markers

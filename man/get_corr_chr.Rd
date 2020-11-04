@@ -38,5 +38,5 @@ for a single chromosome. Code is currently only applicable to
 admixed populations with three ancestral populations.
 }
 \seealso{
-\code{\link[STEAM]{get_g}} and \code{\link[STEAM]{combine_corr_chr}}
+\code{\link[STEAMcpp]{get_g}} and \code{\link[STEAMcpp]{combine_corr_chr}}
 }

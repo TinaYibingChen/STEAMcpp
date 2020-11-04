@@ -27,7 +27,7 @@ get_thresh_simstat(
 
 \item{type}{the type of threshold that should be returned: \code{"stat"} for test statistic or \code{"pval"} for p-value; defaults to pval.}
 
-\item{method}{the method used to simulate test stat: \code{"cpp"} for cpp (using rcpp, 80% faster approximately) or \code{"r"} for r.}
+\item{method}{the method used to simulate test stat: \code{"cpp"} for cpp (using rcpp, 80 percent faster approximately) or \code{"r"} for r.}
 }
 \value{
 A single number indicating the estimated significance threshold (either test statistic or p-value).

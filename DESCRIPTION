@@ -1,26 +1,27 @@
 Package: STEAMcpp
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Significance Threshold Estimation for Admixture Mapping using Rcpp
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Kelsey Grinde
+Maintainer: Kelsey Grinde <kgrinde@macalester.edu>
+Description: Significance Threshold Estimation for Admixture Mapping using Rcpp. This package is built on 
+    theoretical results from the paper "Genome-wide significance thresholds for admixture mapping studies".
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
-Suggests: 
-    knitr,
-    rmarkdown
+RoxygenNote: 7.1.1
+Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 LinkingTo: 
     Rcpp
 Imports: 
-    Rcpp,
-    SNPRelate,
+    Rcpp, 
+    SNPRelate, 
     SeqArray,
-    data.table,
-    gdsfmt
-Depends: 
-    R (>= 2.10)
+    data.table, 
+    gdsfmt,
+    bootstrap,
+    mgcv
+Depends: R (>= 2.10)
+NeedsCompilation: yes
+Packaged: 2020-07-28 19:48:55 UTC; zuofuhuang

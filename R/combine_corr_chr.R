@@ -22,7 +22,7 @@ combine_corr_chr <- function(cor.list){
   snps.df <- rbindlist(cor.list)
 
   # get average within each bin
-  avgs <- snps.df[,.(mean(corr_11),mean(corr_12),mean(corr_13),mean(corr_21),mean(corr_22),mean(corr_23),mean(corr_31),mean(corr_32),mean(corr_33)), by = .(bin)]
+  avgs <- snps.df[,list(mean(corr_11),mean(corr_12),mean(corr_13),mean(corr_21),mean(corr_22),mean(corr_23),mean(corr_31),mean(corr_32),mean(corr_33)), by = list(bin)]
   avgs[,('theta') := L_to_theta(bin)] # add recomb fraction back on
 
   # add col names

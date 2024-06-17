@@ -1,6 +1,9 @@
 ---
 title: "STEAMcpp Vignette"
-output: rmarkdown::html_vignette
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{STEAMcpp Vignette}
   %\VignetteEngine{knitr::rmarkdown}

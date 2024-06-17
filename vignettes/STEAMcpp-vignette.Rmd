@@ -21,11 +21,13 @@ knitr::opts_chunk$set(
 library(STEAMcpp)
 ```
 
+# Introduction
+
 ## An Introduction to the STEAM Package
 
-The STEAM package (Significance Threshold Estimation for Admixture Mapping) is a package for estimating genome-wide significance thresholds for admixture mapping studies.
+The STEAM (Significance Threshold Estimation for Admixture Mapping) package is a package for estimating genome-wide significance thresholds for admixture mapping studies. STEAMcpp is a working version of the STEAM package developed by Grinde et. al in 2019 with core functions implemented with Rcpp, which decreases the user's wall-clock waiting time for some functions.
 
-When thinking about finding the genetic variant that causes certain diseases/traits in GWAS data, a traditional approach is to use marginal regression to step over the genome and perform a hypothesis test at each location. However, with the large number of hypothesis tests in genomic data, we are often faced with the issue of multiple testing. Traditional multiple testing corrections such as Bonferroni correction (Bonferroni, 1936) tend to yield conservative thresholds with respect to controlling for family-wise error rate (FWER). The significance threshold $p < 5*10^{-8}$ has increasingly emerged as the significance threshold commonly used in genome-wide association studies (Jannot et. al, 2015). However, the prevalent significant threshold does not always ensure the best trade-off between Type I and Type II errors.
+When thinking about finding the genetic variant that causes certain diseases or traits in GWAS data, a traditional approach is to use marginal regression to step over the genome and perform a hypothesis test at each location. However, with the large number of hypothesis tests in genomic data, we are often faced with the issue of multiple testing. Traditional multiple testing corrections such as Bonferroni correction (Bonferroni, 1936) tend to yield conservative thresholds with respect to controlling for family-wise error rate (FWER). The significance threshold $p < 5*10^{-8}$ has increasingly emerged as the significance threshold commonly used in genome-wide association studies (Jannot et. al, 2015). However, the prevalent significant threshold does not always ensure the best trade-off between Type I and Type II errors.
 
 Our goal is to find an appropriate significance threshold that controls the family-wise error rate. 
 
@@ -41,6 +43,27 @@ In Grinde et. al (2019), two approaches for estimating genome-wide significance 
 
 - **Analytic Approximation**: applicable to admixed populations with 2 ancestral populations
 - **Test Statistic Simulation**: applicable to admixed populations with 2 or more ancestral populations (STEAM supports at most 3 ancestries)
+
+# Setup
+
+## Installation
+
+> WILL NEED TO UPDATE IF/WHEN SUBMITTING TO BIOCONDUCTOR!!!
+
+To install the STEAMcpp package from GitHub, run the following code in your R console:
+
+```{r eval = FALSE}
+## install.packages("devtools")
+library(devtools)
+install_github('GrindeLab/STEAMcpp', build_vignettes = TRUE)
+```
+
+To install the STEAMcpp package from BioConductor, use the following code in your R console:
+
+```{r eval = FALSE}
+# CODE PLACEHOLDER!!
+```
+
 
 To run either approach, we need to do some preparations steps:
 

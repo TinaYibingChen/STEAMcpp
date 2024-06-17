@@ -27,11 +27,13 @@ library(STEAMcpp)
 
 The STEAM (Significance Threshold Estimation for Admixture Mapping) package is a package for estimating genome-wide significance thresholds for admixture mapping studies. STEAMcpp is a working version of the STEAM package developed by Grinde et. al in 2019 with core functions implemented with Rcpp, which decreases the user's wall-clock waiting time for some functions.
 
-When thinking about finding the genetic variant that causes certain diseases or traits in GWAS data, a traditional approach is to use marginal regression to step over the genome and perform a hypothesis test at each location. However, with the large number of hypothesis tests in genomic data, we are often faced with the issue of multiple testing. Traditional multiple testing corrections such as Bonferroni correction (Bonferroni, 1936) tend to yield conservative thresholds with respect to controlling for family-wise error rate (FWER). The significance threshold $p < 5*10^{-8}$ has increasingly emerged as the significance threshold commonly used in genome-wide association studies (Jannot et. al, 2015). However, the prevalent significant threshold does not always ensure the best trade-off between Type I and Type II errors.
+When thinking about finding the genetic variant that causes certain diseases or traits in genome-wide association studies (GWAS) data, a traditional approach is to use marginal regression to step over the genome and perform a hypothesis test at each location. However, with the large number of hypothesis tests in genomic data, we are often faced with the issue of multiple testing. Traditional multiple testing corrections such as Bonferroni correction (Bonferroni, 1936) tend to yield conservative thresholds with respect to controlling for family-wise error rate (FWER). The significance threshold $p < 5*10^{-8}$ has increasingly emerged as the significance threshold commonly used in genome-wide association studies (Jannot et. al, 2015). However, the prevalent significant threshold does not always ensure the best trade-off between Type I and Type II errors.
 
-Our goal is to find an appropriate significance threshold that controls the family-wise error rate. 
+Our goal with STEAMcpp is to find an appropriate, less conservative significance threshold $p$ that controls the family-wise error rate. 
 
 ## Theoretical Background
+
+> add more? not needed? look at other vignettes and see what they do
 
 The theoretical results implemented in the package are proposed in the following article.
 
@@ -64,6 +66,9 @@ To install the STEAMcpp package from BioConductor, use the following code in you
 # CODE PLACEHOLDER!!
 ```
 
+## Required Data
+
+> FIX FORMATTING!!!
 
 To run either approach, we need to do some preparations steps:
 

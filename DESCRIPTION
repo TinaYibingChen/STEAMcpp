@@ -14,18 +14,14 @@ Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 LinkingTo: 
     Rcpp
-BiocViews: 
+Imports: 
+    Rcpp, 
+    data.table,
+    bootstrap,
+    mgcv,
     SNPRelate,
     SeqArray,
     gdsfmt
-Imports: 
-    Rcpp, 
-    SNPRelate, 
-    SeqArray,
-    data.table, 
-    gdsfmt,
-    bootstrap,
-    mgcv
 Depends: R (>= 2.10)
 NeedsCompilation: yes
 Packaged: 2020-07-28 19:48:55 UTC; zuofuhuang

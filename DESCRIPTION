@@ -16,6 +16,7 @@ LinkingTo:
     Rcpp
 Imports: 
     Rcpp, 
+    BiocManager,
     data.table,
     bootstrap,
     mgcv,

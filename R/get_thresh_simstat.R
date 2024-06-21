@@ -36,9 +36,24 @@ get_thresh_simstat <- function(g, map, props, nreps=10000, alpha=0.05, type="pva
   # calculate the matrix L
   L <- get_L(avg_props) # could condense with calculating avg
 
-  # simulate test stats nreps times
-  if (method == "cpp"){
-    max_stats <- replicate(nreps, simstatSingle(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L))
+  Rcpp::sourceCpp("/Users/sydneyohr/Desktop/STEAM/STEAMcpp/src/simstatSingle.cpp")
+  
+
+
+  cluster <- makeCluster(4)
+  registerDoParallel(cluster)
+  
+  on.exit(stopCluster(cluster), add = TRUE) # Ensure the cluster stops on exit
+  
+  
+  if (method == "cpp") {
+    max_stats <- foreach(i = 1:nreps, .combine = c) %dopar% {
+      tryCatch({
+        simstatSingle(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L)
+      }, error = function(e) {
+        stop("Error in simstatSingle: ", e$message)
+      })
+    }
   } else {
     max_stats <- replicate(nreps, simstat_once(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L))
   }

@@ -35,12 +35,29 @@ get_thresh_simstat <- function(g, map, props, nreps=10000, alpha=0.05, type="pva
 
   # calculate the matrix L
   L <- get_L(avg_props) # could condense with calculating avg
+<<<<<<< Updated upstream
 
   # simulate test stats nreps times
   if (method == "cpp"){
     max_stats <- replicate(nreps, simstatSingle(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L))
   } else {
     max_stats <- replicate(nreps, simstat_once(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L))
+=======
+  
+  handlers("progress")
+  p <- progressr::progressor(steps = nreps)
+  
+  # simulate test stats nreps times
+ 
+  max_stats <- numeric(nreps)
+  for (i in 1:nreps) {
+    p("Loading...")
+    if (method == "cpp") {
+      max_stats[i] <- simstatSingle(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L)
+    } else {
+      max_stats[i] <- simstat_once(m = nrow(map), K = ncol(props), as = ab$a, bs = ab$b, L = L)
+    }
+>>>>>>> Stashed changes
   }
 
   # get upper alpha quantile

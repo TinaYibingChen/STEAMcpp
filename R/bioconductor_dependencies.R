@@ -13,6 +13,9 @@
   if (!requireNamespace("SNPRelate", quietly = TRUE)) {
       BiocManager::install("SNPRelate")  
     
+  library(SeqArray)
+  library(gdsfmt)
+  library(SNPRelate)
 
 }
 

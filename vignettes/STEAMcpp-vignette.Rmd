@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(STEAMcpp)
+library(dplyr)
 ```
 
 > STEAM VIGNETTE: MAKE NEW VIGNETTE ONCE WE FIGURE OUT WORKFLOW!!!
@@ -43,22 +44,23 @@ To run either approach, we first need to:
    
    * **NOTE:** If you inferred local ancestry using a program that performs calling within windows (e.g., RFMix), we recommend that you include just a single marker per window in this map file.
    
-Here is an example of a map file, `example_map`, available in the STEAM GitHub repository:
+Here is an example of a map file, `example_map`, available in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data):
 ```{r}
+## first 6 rows of example_map ##
 head(example_map)
 ```
-
 
 **Step 2:** Estimate the admixture proportions for each individual and store them in an `n`-by-`K` matrix, where `n` is the number of admixed individuals and `K` is the number of ancestral populations.
    
    * There are various ways to calculate these proportions, one of which is to calculate the genome-wide average local ancestry for each individual.
    
-Below is an example of a matrix of admixture proportions, `example_props`, available in the STEAM GitHub repository. This matrix contains the admixture proportions for `n` = 1000 admixed individuals and `K` = 2 ancestral populations:
+Below is an example of a matrix of admixture proportions, `example_props`, available in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data). This matrix contains the admixture proportions for `n = 1000` admixed individuals and `K = 2` ancestral populations:
 ```{r}
 head(example_props)
+sample_n(example_props, 6)
 ```
 
-Similarly, `example_props_K3` is an example admixture proportions matrix for `n` = 1000 admixed individuals and `K` = 3 ancestral populations:
+Similarly, `example_props_K3` in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data) is an example admixture proportions matrix for `n = 1000` admixed individuals and `K = 3` ancestral populations:
 ```{r}
 head(example_props_K3)
 ```
@@ -78,7 +80,7 @@ The STEAMcpp package contains the following main functions:
 | `get_thresh_analytic` | for K = 2 populations, compute genome-wide significance threshold for admixture mapping |
 | `get_thresh_simstat` | for K = 2 or K = 3 populations, compute genome-wide significance threshold for admixture mapping |
 
-`g`, the number of generations since admixture, is a required parameter for both `get_thresh_analytic` and `get_thresh_simstat`. `g` can be quickly estimated using the `get_g` function.
+`g`, the number of generations since admixture, is a required parameter for both `get_thresh_analytic` and `get_thresh_simstat`. `g` can be quickly estimated using the `get_g` function using the observed correlation of local ancestry at pairs of loci in the data. This method is described in Section 4.1 below.
 
 ## Estimating g (get_g)
 
@@ -92,7 +94,7 @@ Estimating `g` from our observed data---rather than relying on estimates from ex
 
 * In an admixed population with 3 ancestral populations (e.g., African, European, Native American), there are six possible pairs of ancestral components (AFR at both loci, EUR at both loci, NAM at both loci, AFR at one and EUR at the other, AFR at one and NAM at the other, EUR at one and NAM at the other).
 
-Store this local ancestry correlation in a data frame with three columns, as in the following examples (available in the STEAM GitHub repository):
+Store this local ancestry correlation in a data frame with three columns, as in the following examples (available in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data)):
 
 ```{r}
 ## 2 ancestral populations ##

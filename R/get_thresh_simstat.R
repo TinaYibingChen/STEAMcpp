@@ -36,7 +36,7 @@ get_thresh_simstat <- function(g, map, props, nreps=10000, alpha=0.05, type="pva
   # calculate the matrix L
   L <- get_L(avg_props) # could condense with calculating avg
 
-  handlers("progress")
+  handlers("cli")
   p <- progressr::progressor(steps = nreps)
   
   # simulate test stats nreps times

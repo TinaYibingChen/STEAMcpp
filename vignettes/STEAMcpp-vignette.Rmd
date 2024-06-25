@@ -57,7 +57,6 @@ head(example_map)
 Below is an example of a matrix of admixture proportions, `example_props`, available in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data). This matrix contains the admixture proportions for `n = 1000` admixed individuals and `K = 2` ancestral populations:
 ```{r}
 head(example_props)
-sample_n(example_props, 6)
 ```
 
 Similarly, `example_props_K3` in the [STEAM GitHub repository](https://github.com/GrindeLab/STEAM/tree/main/data) is an example admixture proportions matrix for `n = 1000` admixed individuals and `K = 3` ancestral populations:

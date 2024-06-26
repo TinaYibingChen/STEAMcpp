@@ -22,7 +22,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_STEAMcpp_simstatSingle", (DL_FUNC) &_STEAMcpp_simstatSingle, 5},
+    {"_STEAM_simstatSingle", (DL_FUNC) &_STEAM_simstatSingle, 5},
     {NULL, NULL, 0}
 };
 

@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // simstatSingle
 double simstatSingle(int m, int K, NumericVector as, NumericVector bs, NumericMatrix L);
-RcppExport SEXP _STEAMcpp_simstatSingle(SEXP mSEXP, SEXP KSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP LSEXP) {
+RcppExport SEXP _STEAM_simstatSingle(SEXP mSEXP, SEXP KSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP LSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
